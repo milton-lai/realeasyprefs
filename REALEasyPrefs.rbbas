@@ -195,8 +195,13 @@ Module REALEasyPrefs
 		      aIn=TextInputStream.Open(prefFile)
 		      while not aIn.EOF
 		        tmpStr = aIn.ReadLine
-		        prefNames.append NthField(tmpStr, "=", 1)
-		        prefItems.append NthField(tmpStr, "=", 2)
+		        //updated so we can have "=" in the value pair (base64encoding generates = signs)
+		        dim tmpStrArray() as string = tmpStr.Split("")
+		        dim delimIndex as integer = tmpStrArray.IndexOf("=")
+		        if delimIndex > -1 then
+		          prefNames.append(TmpStr.Left(delimIndex))
+		          prefItems.append(TmpStr.Right(tmpStrArray.Ubound - delimIndex))
+		        end
 		      wend
 		    end if
 		  #else
@@ -261,8 +266,13 @@ Module REALEasyPrefs
 		      aIn=TextInputStream.Open(prefFile)
 		      while not aIn.EOF
 		        tmpStr = aIn.ReadLine
-		        prefNames.append NthField(tmpStr, "=", 1)
-		        prefItems.append NthField(tmpStr, "=", 2)
+		        //updated so we can have "=" in the value pair (base64encoding generates = signs)
+		        dim tmpStrArray() as string = tmpStr.Split("")
+		        dim delimIndex as integer = tmpStrArray.IndexOf("=")
+		        if delimIndex > -1 then
+		          prefNames.append(TmpStr.Left(delimIndex))
+		          prefItems.append(TmpStr.Right(tmpStrArray.Ubound - delimIndex))
+		        end
 		      wend
 		    end if
 		  #else
@@ -488,8 +498,13 @@ Module REALEasyPrefs
 		aIn=TextInputStream.Open(prefFile)
 		while not aIn.EOF
 		tmpStr = aIn.ReadLine
-		prefNames.append NthField(tmpStr, "=", 1)
-		prefItems.append NthField(tmpStr, "=", 2)
+		        //updated so we can have "=" in the value pair (base64encoding generates = signs)
+		        dim tmpStrArray() as string = tmpStr.Split("")
+		        dim delimIndex as integer = tmpStrArray.IndexOf("=")
+		        if delimIndex > -1 then
+		          prefNames.append(TmpStr.Left(delimIndex))
+		          prefItems.append(TmpStr.Right(tmpStrArray.Ubound - delimIndex))
+		        end
 		wend
 		end if
 		#else
@@ -552,8 +567,13 @@ Module REALEasyPrefs
 		aIn=TextInputStream.Open(prefFile)
 		while not aIn.EOF
 		tmpStr = aIn.ReadLine
-		prefNames.append NthField(tmpStr, "=", 1)
-		prefItems.append NthField(tmpStr, "=", 2)
+		        //updated so we can have "=" in the value pair (base64encoding generates = signs)
+		        dim tmpStrArray() as string = tmpStr.Split("")
+		        dim delimIndex as integer = tmpStrArray.IndexOf("=")
+		        if delimIndex > -1 then
+		          prefNames.append(TmpStr.Left(delimIndex))
+		          prefItems.append(TmpStr.Right(tmpStrArray.Ubound - delimIndex))
+		        end
 		wend
 		end if
 		#else
@@ -595,8 +615,13 @@ Module REALEasyPrefs
 		aIn=TextInputStream.Open(prefFile)
 		while not aIn.EOF
 		tmpStr = aIn.ReadLine
-		prefNames.append NthField(tmpStr, "=", 1)
-		prefItems.append NthField(tmpStr, "=", 2)
+		        //updated so we can have "=" in the value pair (base64encoding generates = signs)
+		        dim tmpStrArray() as string = tmpStr.Split("")
+		        dim delimIndex as integer = tmpStrArray.IndexOf("=")
+		        if delimIndex > -1 then
+		          prefNames.append(TmpStr.Left(delimIndex))
+		          prefItems.append(TmpStr.Right(tmpStrArray.Ubound - delimIndex))
+		        end
 		wend
 		end if
 	#tag EndNote
